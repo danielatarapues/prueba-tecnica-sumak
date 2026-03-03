@@ -58,6 +58,39 @@ npm run dev
 
 La aplicación estará disponible en [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000).
 
+
+## 🗄️ Configuración de la Base de Datos (Supabase)
+
+Para que el sistema funcione correctamente, se debe configurar la tabla en el dashboard de Supabase de la siguiente manera:
+
+1. **Tabla `products`**:
+
+
+* `id`: uuid o int8 (Primary Key).
+* `name`: text (Nombre del producto).
+* `description`: text (Descripción del producto).
+* `price`: numeric o float8 (Precio del producto).
+* `created_at`: timestamp (Para ordenamiento de registros).
+
+
+2. **Políticas de Seguridad (RLS)**:
+   
+Dado que el proyecto incluye autenticación, las políticas deben configurarse para usuarios autenticados. Habilitar RLS y crear políticas que permitan a los usuarios authenticated:
+
+**SELECT**: Para visualizar el listado de productos.
+
+
+**INSERT**: Para la creación de nuevos registros.
+
+
+**UPDATE**: Para permitir la edición de productos existentes.
+
+
+**DELETE**: Para habilitar la eliminación de registros.
+
+
+
+
 ## 💡 Decisiones Técnicas y Justificación
 
 De acuerdo con los requerimientos de la prueba:
